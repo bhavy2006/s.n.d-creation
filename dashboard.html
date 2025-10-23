@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.N.D Creation Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-store-alt"></i>
+                <h1 class="brand-name">S.N.D Creation</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#products" class="active"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="#orders"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                <li><a href="#customers"><i class="fas fa-users"></i> Customers</a></li>
+                <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search for products, orders, customers...">
+                </div>
+                <div class="header-actions">
+                    <button id="add-product-btn" class="btn primary-btn"><i class="fas fa-plus"></i> Add Product</button>
+                    <div class="user-profile">
+                        <span class="user-name">Admin</span>
+                        <img src="images/IMG_20240501_153718.jpg" alt="Admin" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <section id="products" class="active">
+                    <div class="section-header">
+                        <h2>Products</h2>
+                        <div class="filter-sort-controls">
+                            <select id="category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="kids">Kids</option>
+                                <option value="undergarment">Undergarment</option>
+                            </select>
+                            <select id="status-filter">
+                                <option value="all">All Status</option>
+                                <option value="In Stock">In Stock</option>
+                                <option value="Low Stock">Low Stock</option>
+                                <option value="Out of Stock">Out of Stock</option>
+                            </select>
+                            <select id="sort-select">
+                                <option value="name-asc">Sort by Name (A-Z)</option>
+                                <option value="name-desc">Sort by Name (Z-A)</option>
+                                <option value="price-asc">Sort by Price (Low to High)</option>
+                                <option value="price-desc">Sort by Price (High to Low)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <table class="product-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-list-body">
+                            </tbody>
+                    </table>
+                    <p id="no-products-message" class="empty-message" style="display: none;">No products found.</p>
+                </section>
+
+                <section id="orders">
+                    <div class="section-header">
+                        <h2>Orders</h2>
+                    </div>
+                    <table class="order-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer Name</th>
+                                <th>Customer Email</th>
+                                <th>Total Price</th>
+                                <th>Payment Method</th>
+                                <th>Order Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-list-body">
+                            </tbody>
+                    </table>
+                    <p id="no-orders-message" class="empty-message" style="display: none;">No orders found.</p>
+                </section>
+
+                <section id="customers">
+                    <div class="section-header">
+                        <h2>Customers</h2>
+                    </div>
+                    <table class="customer-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Total Orders</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customer-list-body">
+                            </tbody>
+                    </table>
+                    <p id="no-customers-message" class="empty-message" style="display: none;">No customers found.</p>
+                </section>
+                
+                <section id="settings">
+                    <div class="section-header">
+                        <h2>Settings</h2>
+                    </div>
+                    <div class="settings-content">
+                        <p>Store Name: <span class="setting-value">S.N.D Creation</span></p>
+                        <p>Currency: <span class="setting-value">USD</span></p>
+                        <p>Admin Email: <span class="setting-value">admin@sndcreation.com</span></p>
+                        <p>This is a placeholder for your store settings.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="add-product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add New Product</h2>
+            <form id="add-product-form">
+                <label for="new-product-name">Product Name:</label>
+                <input type="text" id="new-product-name" name="name" required>
+                
+                <label for="new-product-category">Category:</label>
+                <select id="new-product-category" name="category" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="kids">Kids</option>
+                    <option value="undergarment">Undergarment</option>
+                </select>
+                
+                <label for="new-product-price">Price:</label>
+                <input type="number" id="new-product-price" name="price" step="0.01" required>
+
+                <label for="new-product-stock">Stock:</label>
+                <input type="number" id="new-product-stock" name="stock" required>
+                
+                <label for="new-product-status">Status:</label>
+                <select id="new-product-status" name="status" required>
+                    <option value="In Stock">In Stock</option>
+                    <option value="Low Stock">Low Stock</option>
+                    <option value="Out of Stock">Out of Stock</option>
+                </select>
+                
+                <label for="new-product-image">Image URL:</label>
+                <input type="text" id="new-product-image" name="image" placeholder="images/t-shirt-1.jpeg" required>
+
+                <button type="submit" class="btn primary-btn">Add Product</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="order-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-order-details">&times;</span>
+            <h2>Order Details</h2>
+            <div id="order-details-content">
+                </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart - S.N.D Creation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/1-removebg-preview.png" alt="Style. New. Daily.">
+                <div class="logo-text">
+                    <h1>Style. New. Daily.</h1>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <a href="cart.html" class="cart-link">
+                            <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H200.4c-34.1 0-65.3-17.2-84.1-46.6L5.5 110.1C2.3 97.5 0 83.8 0 69.5V24zM176 352c-26.5 0-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48s-21.5-48-48-48zm336 0c-26.5 0-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48s-21.5-48-48-48z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-small" style="background-image: url('images/checkout-hero.jpeg');">
+            <div class="hero-content">
+                <h1>Checkout</h1>
+            </div>
+        </section>
+
+        <section class="content-section checkout-page">
+            <div class="container">
+                <div class="checkout-container">
+                    
+                    <div class="checkout-form-container">
+                        <form id="checkout-form">
+                            <h3>Shipping Information</h3>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Mobile Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="state">State</label>
+                                    <input type="text" id="state" name="state" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">Postal Code</label>
+                                    <input type="number" id="zip" name="zip" required pattern="[0-9]{5}">
+                                </div>
+                            </div>
+
+                            <h3>Payment Method</h3>
+                            <div class="payment-method-options">
+                                <div class="form-group payment-option">
+                                    <input type="radio" id="payment-card" name="payment-method" value="card" checked>
+                                    <label for="payment-card">Credit/Debit Card</label>
+                                </div>
+                                <div class="form-group payment-option">
+                                    <input type="radio" id="payment-gpay" name="payment-method" value="googlepay">
+                                    <label for="payment-gpay">Google Pay</label>
+                                </div>
+                                <div class="form-group payment-option">
+                                    <input type="radio" id="payment-phonepay" name="payment-method" value="phonepay">
+                                    <label for="payment-phonepay">PhonePe</label>
+                                </div>
+                                <div class="form-group payment-option">
+                                    <input type="radio" id="payment-cod" name="payment-method" value="cod">
+                                    <label for="payment-cod">Cash on Delivery</label>
+                                </div>
+                            </div>
+
+                            <div id="card-details-container" class="payment-details-container hidden">
+                                <h4>Card Details</h4>
+                                <div class="form-group">
+                                    <label for="card-number">Card Number</label>
+                                    <input type="text" id="card-number" name="card-number" required>
+                                </div>
+                                <div class="form-group-row">
+                                    <div class="form-group">
+                                        <label for="expiry">Expiry Date</label>
+                                        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required pattern="(0[1-9]|1[0-2])\/[0-9]{2}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" id="cvv" name="cvv" required pattern="[0-9]{3,4}">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn checkout-submit-btn">Place Order</button>
+                        </form>
+                    </div>
+
+                    <div class="checkout-summary-container">
+                        <h3>Order Summary</h3>
+                        <div id="checkout-cart-items" class="checkout-cart-items">
+                            </div>
+                        <div id="checkout-summary-details" class="checkout-summary-details">
+                            <div class="checkout-summary-item">
+                                <span>Subtotal</span>
+                                <span id="checkout-subtotal" class="summary-value">$0.00</span>
+                            </div>
+                            <div class="checkout-summary-item">
+                                <span>Shipping</span>
+                                <span id="checkout-shipping" class="summary-value">$5.00</span>
+                            </div>
+                            <div class="checkout-summary-item total">
+                                <span>Total</span>
+                                <span id="checkout-total" class="summary-value">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 E-Commerce Store. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
